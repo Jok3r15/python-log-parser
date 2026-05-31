@@ -9,10 +9,15 @@ def parse_logs(file_path):
                 ip_counts[ip] += 1
         return ip_counts
     except FileNotFoundError:
-        print("El archivo no existe. ¡Ejecuta el generador primero!")
+        print("El archivo no existe.")
+        return None
 
 if __name__ == "__main__":
     results = parse_logs("data/access.log")
-    print("Resumen de tráfico por IP:")
-    for ip, count in results.items():
-        print(f"IP: {ip} | Peticiones: {count}")
+    if results:
+        print("--- Análisis de Seguridad: Reporte de Tráfico ---")
+        for ip, count in results.items():
+            if count > 2:
+                print(f"[!] ALERTA: Actividad sospechosa detectada: {ip} con {count} peticiones.")
+            else:
+                print(f"[*] IP: {ip} | Peticiones: {count} (Normal)")
