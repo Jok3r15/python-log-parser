@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.log
+data/*.log
+.DS_Storevenv/
+__pycache__/
+*.log
+data/*.log
+.DS_Store
