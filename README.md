@@ -22,3 +22,6 @@ A lightweight, efficient log auditing tool designed to monitor server traffic an
 
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.
+
+## Project Status
+- **Robust Sentinel:** Implemented real-time log monitoring with persistent state memory (Blacklist) optimized for WSL and Linux environments.
