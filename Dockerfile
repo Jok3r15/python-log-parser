@@ -9,7 +9,7 @@ WORKDIR /app
 ENV PYTHONUNBUFFERED=1
 
 # 4. Copiar únicamente tu script al contenedor
-COPY main.py .
+COPY src/parser/main.py .
 
 # 5. Comando por defecto para ejecutar el centinela
 CMD ["python", "main.py"]
