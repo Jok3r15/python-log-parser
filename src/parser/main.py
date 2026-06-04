@@ -1,48 +1,64 @@
-import argparse
-from datetime import datetime
+import time
+import os
 from collections import defaultdict
 
 def main():
-    # 1. Definición estricta de argumentos
-    parser = argparse.ArgumentParser(description="Log Parser Profesional")
-    parser.add_argument("--file", required=True, help="Archivo de logs a analizar")
-    parser.add_argument("--threshold", type=int, default=3, help="Umbral de alertas")
-    args = parser.parse_args()
+    log_file = "access.log"
+    threshold = 3
+    blacklist_file = "blacklist.txt"
+    
+    # 1. Cargamos persistencia UNA VEZ al inicio
+    def load_blacklist():
+        if os.path.exists(blacklist_file):
+            with open(blacklist_file, "r") as f:
+                return set(line.strip() for line in f)
+        return set()
 
-    # 2. Inicialización de estructuras de datos
+    blacklist = load_blacklist()
+    # 2. IP_COUNTS VIVE FUERA DEL BUCLE
     ip_counts = defaultdict(int)
-    report_file_name = "reporte_seguridad.txt"
-    found_suspicious = False
-# Genera un nombre como: reporte_2026-06-02_20-15.txt
-    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M")
-    report_file_name = f"reporte_{timestamp}.txt"
-
-    # 3. Lógica de procesamiento segura
+    
+    print(f"--- Centinela Modo WSL Robusto | Blacklist: {len(blacklist)} IPs ---")
+    
+    # Aseguramos existencia del archivo
+    if not os.path.exists(log_file):
+        open(log_file, 'a').close()
+        
+    last_size = os.path.getsize(log_file)
+    
     try:
-        with open(args.file, 'r') as f:
-            for line in f:
-                if line.strip(): # Evita errores con líneas vacías
-                    ip = line.split()[0]
-                    ip_counts[ip] += 1
-        
-        # 4. Generación de reporte
-        with open(report_file_name, 'w') as report_file:
-            for ip, count in ip_counts.items():
-                if count > args.threshold:
-                    msg = f"ALERTA: IP {ip} superó el umbral con {count} peticiones.\n"
-                    print(msg.strip())
-                    report_file.write(msg)
-                    found_suspicious = True
-        
-        if not found_suspicious:
-            print("No se encontraron IPs sospechosas.")
-        else:
-            print(f"Reporte generado en: {report_file_name}")
-
-    except FileNotFoundError:
-        print(f"Error: El archivo '{args.file}' no existe.")
-    except Exception as e:
-        print(f"Error inesperado: {e}")
+        while True:
+            current_size = os.path.getsize(log_file)
+            
+            # Si el archivo fue borrado o rotado, reiniciamos el tamaño
+            if current_size < last_size:
+                last_size = 0
+            
+            if current_size > last_size:
+                with open(log_file, "r") as f:
+                    f.seek(last_size)
+                    new_lines = f.readlines()
+                    
+                    for line in new_lines:
+                        line = line.strip()
+                        if line:
+                            ip = line.split()[0]
+                            # Solo contamos si no está bloqueada
+                            if ip not in blacklist:
+                                ip_counts[ip] += 1
+                                print(f"[EVENTO] {ip} | Intentos acumulados: {ip_counts[ip]}")
+                                
+                                if ip_counts[ip] > threshold:
+                                    print(f"[!!!] BLOQUEANDO: {ip}")
+                                    with open(blacklist_file, "a") as b:
+                                        b.write(f"{ip}\n")
+                                    blacklist.add(ip)
+                
+                last_size = current_size
+            
+            time.sleep(0.5)
+    except KeyboardInterrupt:
+        print("\nCentinela detenido.")
 
 if __name__ == "__main__":
     main()
