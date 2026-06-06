@@ -1,7 +1,0 @@
-2026-06-02 18:49:56,230 - INFO - Iniciando análisis del archivo: ../../parser.log con umbral: 50
-2026-06-02 18:54:31,321 - INFO - Iniciando análisis del archivo: access.log con umbral: 3
-2026-06-02 19:12:16,544 - INFO - Iniciando análisis del archivo: access.log con umbral: 3
-2026-06-02 19:17:56,791 - INFO - Iniciando análisis del archivo: archivo_fantasma.log con umbral: 3
-2026-06-02 19:17:56,791 - ERROR - Error: El archivo 'archivo_fantasma.log' no existe.
-2026-06-02 19:21:20,753 - INFO - Iniciando análisis del archivo: archivo_fantasma.log con umbral: 3
-2026-06-02 19:21:20,753 - ERROR - Error: El archivo 'archivo_fantasma.log' no existe.

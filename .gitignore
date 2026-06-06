@@ -21,3 +21,11 @@ terraform/aws/dist/
 
 # Logs
 *.log
+*.pem
+*.tfstate*
+dist/
+.venv/
+*.tfstate*
+.terraform/
+*.tfstate*
+.terraform/
