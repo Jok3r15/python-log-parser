@@ -1,25 +1,64 @@
 # Python Log Parser
 
-A lightweight, efficient log auditing tool designed to monitor server traffic and detect anomalies in real-time.
+A lightweight, efficient log auditing tool designed for real-time monitoring and anomaly detection. This project is built for server-side log analysis, featuring automated infrastructure deployment and system orchestration.
 
 ## Features
-* **Log Generator:** Simulates real-world web traffic (IPs, HTTP methods, status codes).
-* **Log Parser:** Efficiently processes log files line-by-line to ensure low memory footprint.
-* **Anomaly Detection:** Identifies suspicious activity based on configurable traffic thresholds.
 
-## Architecture
-* **Language:** Python 3
-* **Containerization:** Docker (with persistent volume mapping)
-* **OS Compatibility:** Linux / WSL2 optimized
-* **CI/CD:** Automated testing and build pipeline via GitHub Actions
+* **Log Parsing:** Efficient, line-by-line processing of log files with low memory footprint.
+* **Automation:** Fully automated infrastructure provisioning via **Terraform** (AWS).
+* **Process Management:** Managed as a native Linux service via **systemd** for high availability.
+* **CI/CD:** Automated testing and build pipeline via GitHub Actions.
 
-## Getting Started
-1. **Clone the repository:** `git clone https://github.com/Jok3r15/python-log-parser.git`
-2. **Run the log generator:** `python3 src/generator.py`
-3. **Run the parser:** `python3 src/parser.py`
+## Repository Structure
 
-## Project Status
-* **Robust Sentinel:** Implemented real-time log monitoring with persistent state memory (Blacklist) optimized for WSL and Linux environments, fully containerized and integrated with a CI/CD pipeline.
+```text
+.
+├── src/            # Core parsing logic
+├── terraform/      # Infrastructure as Code (AWS configuration)
+├── data/           # Sample log files for auditing
+├── tests/          # Unit testing suite
+├── Makefile        # Automation commands (Build, Test, Deploy)
+└── main.py         # Main entry point for the auditing service
+Infrastructure (AWS)
 
-## License
+We use Terraform to provision the AWS environment, ensuring consistency across environments.
+
+Instance: t3.micro (Ubuntu 22.04).
+
+Networking: Secure VPC with Network Segmentation.
+
+AMI: Automated dynamic selection of the latest Ubuntu AMI.
+
+Deployment & Execution
+
+1. Infrastructure
+
+To provision the AWS environment:
+
+Bash
+
+cd terraform
+terraform init
+terraform apply
+
+2. Service Management
+
+The parser runs as a native Linux service. Manage it via systemd:
+
+Bash
+
+sudo systemctl start log-parser   # Start the service
+sudo systemctl status log-parser  # Check status
+sudo journalctl -u log-parser -f  # View logs in real-time
+
+
+Getting Started
+
+Clone the repo: git clone https://github.com/Jok3r15/python-log-parser.git
+
+Setup Environment: python3 -m venv .venv && source .venv/bin/activate
+
+Run: python3 main.py
+
+License
 Distributed under the MIT License. See LICENSE for more information.
