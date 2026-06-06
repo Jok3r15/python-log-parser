@@ -15,3 +15,6 @@ __pycache__/
 # Sistema
 .DS_Store
 .vscode/
+
+# Ignorar la carpeta de distribución y dependencias de AWS CLI
+terraform/aws/dist/
