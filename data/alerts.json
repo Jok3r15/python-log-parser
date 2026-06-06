@@ -1,0 +1,35 @@
+{"timestamp": "2026-06-06T17:07:05.033576", "type": "auth_failure", "message": "2026-06-06 10:00:05 ERROR Failed password for root"}
+{"timestamp": "2026-06-06T17:07:05.034526", "type": "auth_failure", "message": "2026-06-06 10:00:05 ERROR Failed password for root"}
+{"timestamp": "2026-06-06T17:27:25.416552", "type": "auth_failure", "message": "2026-06-06 10:00:05 ERROR Failed password for root"}
+{"timestamp": "2026-06-06T17:27:25.417069", "type": "auth_failure", "message": "2026-06-06 10:00:05 ERROR Failed password for root"}
+{"timestamp": "2026-06-06T17:27:25.417562", "type": "system_error", "message": "2026-06-06 17:15:00 CRITICAL Kernel panic on srv-01"}
+{"timestamp": "2026-06-06T17:32:18.431600", "type": "auth_failure", "message": "2026-06-06 10:00:05 ERROR Failed password for root"}
+{"timestamp": "2026-06-06T17:32:18.431983", "type": "auth_failure", "message": "2026-06-06 10:00:05 ERROR Failed password for root"}
+{"timestamp": "2026-06-06T17:32:18.432188", "type": "system_error", "message": "2026-06-06 17:15:00 CRITICAL Kernel panic on srv-01"}
+{"timestamp": "2026-06-06T17:32:18.432673", "type": "auth_failure", "message": "2026-06-06 18:00:00 ERROR Failed password for root from 192.168.1.50"}
+{"timestamp": "2026-06-06T17:38:10.110072", "type": "auth_failure", "message": "2026-06-06 10:00:05 ERROR Failed password for root"}
+{"timestamp": "2026-06-06T17:38:10.110349", "type": "auth_failure", "message": "2026-06-06 10:00:05 ERROR Failed password for root"}
+{"timestamp": "2026-06-06T17:38:10.110512", "type": "system_error", "message": "2026-06-06 17:15:00 CRITICAL Kernel panic on srv-01"}
+{"timestamp": "2026-06-06T17:38:10.110655", "type": "auth_failure", "message": "2026-06-06 18:00:00 ERROR Failed password for root from 192.168.1.50"}
+{"timestamp": "2026-06-06T17:38:47.612232", "type": "auth_failure", "message": "2026-06-06 10:00:05 ERROR Failed password for root"}
+{"timestamp": "2026-06-06T17:38:47.613264", "type": "auth_failure", "message": "2026-06-06 10:00:05 ERROR Failed password for root"}
+{"timestamp": "2026-06-06T17:38:47.613648", "type": "system_error", "message": "2026-06-06 17:15:00 CRITICAL Kernel panic on srv-01"}
+{"timestamp": "2026-06-06T17:38:47.613954", "type": "auth_failure", "message": "2026-06-06 18:00:00 ERROR Failed password for root from 192.168.1.50"}
+{"timestamp": "2026-06-06T17:38:47.614304", "type": "auth_failure", "message": "2026-06-06 18:05:00 ERROR Failed password from 10.0.0.10"}
+{"timestamp": "2026-06-06T17:39:40.667565", "type": "auth_failure", "message": "2026-06-06 10:00:05 ERROR Failed password for root"}
+{"timestamp": "2026-06-06T17:39:40.667880", "type": "auth_failure", "message": "2026-06-06 10:00:05 ERROR Failed password for root"}
+{"timestamp": "2026-06-06T17:39:40.668050", "type": "system_error", "message": "2026-06-06 17:15:00 CRITICAL Kernel panic on srv-01"}
+{"timestamp": "2026-06-06T17:39:40.668203", "type": "auth_failure", "message": "2026-06-06 18:00:00 ERROR Failed password for root from 192.168.1.50"}
+{"timestamp": "2026-06-06T17:39:40.668385", "type": "auth_failure", "message": "2026-06-06 18:05:00 ERROR Failed password from 10.0.0.10"}
+{"timestamp": "2026-06-06T17:45:02.508705", "type": "auth_failure", "message": "2026-06-06 10:00:05 ERROR Failed password for root"}
+{"timestamp": "2026-06-06T17:45:02.509481", "type": "auth_failure", "message": "2026-06-06 10:00:05 ERROR Failed password for root"}
+{"timestamp": "2026-06-06T17:45:02.509745", "type": "system_error", "message": "2026-06-06 17:15:00 CRITICAL Kernel panic on srv-01"}
+{"timestamp": "2026-06-06T17:45:02.509964", "type": "auth_failure", "message": "2026-06-06 18:00:00 ERROR Failed password for root from 192.168.1.50"}
+{"timestamp": "2026-06-06T17:45:02.510270", "type": "auth_failure", "message": "2026-06-06 18:05:00 ERROR Failed password from 10.0.0.10"}
+{"timestamp": "2026-06-06T17:45:02.510446", "type": "auth_failure", "message": "2026-06-06 18:05:00 ERROR Failed password from 10.0.0.10"}
+{"timestamp": "2026-06-06T17:50:20.007990", "type": "auth_failure", "message": "2026-06-06 10:00:05 ERROR Failed password for root"}
+{"timestamp": "2026-06-06T17:50:20.009736", "type": "auth_failure", "message": "2026-06-06 10:00:05 ERROR Failed password for root"}
+{"timestamp": "2026-06-06T17:50:20.009959", "type": "system_error", "message": "2026-06-06 17:15:00 CRITICAL Kernel panic on srv-01"}
+{"timestamp": "2026-06-06T17:50:20.010104", "type": "auth_failure", "message": "2026-06-06 18:00:00 ERROR Failed password for root from 192.168.1.50"}
+{"timestamp": "2026-06-06T17:50:20.010667", "type": "auth_failure", "message": "2026-06-06 18:05:00 ERROR Failed password from 10.0.0.10"}
+{"timestamp": "2026-06-06T17:50:20.010841", "type": "auth_failure", "message": "2026-06-06 18:05:00 ERROR Failed password from 10.0.0.10"}
