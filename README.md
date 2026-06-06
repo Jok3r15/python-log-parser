@@ -1,4 +1,3 @@
-Markdown
 # Python Log Parser
 
 A lightweight, efficient log auditing tool designed for real-time monitoring and anomaly detection. This project is built for server-side log analysis, featuring automated infrastructure deployment and system orchestration.
@@ -20,6 +19,7 @@ A lightweight, efficient log auditing tool designed for real-time monitoring and
 ├── tests/          # Unit testing suite
 ├── Makefile        # Automation commands (Build, Test, Deploy)
 └── main.py         # Main entry point for the auditing service
+
 Infrastructure (AWS)
 We use Terraform to provision the AWS environment, ensuring consistency across environments.
 
