@@ -1,9 +1,17 @@
-venv/
+# Llaves privadas (¡CRÍTICO!)
+*.pem
+*.key
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+
+# Python / Entornos
+.venv/
 __pycache__/
-*.log
-data/*.log
-.DS_Storevenv/
-__pycache__/
-*.log
-data/*.log
+
+# Sistema
 .DS_Store
+.vscode/
