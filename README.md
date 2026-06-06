@@ -33,17 +33,23 @@ Deployment & Execution
 To provision the AWS environment:
 
 Bash
+
 cd terraform
 terraform init
 terraform apply
+
 2. Service Management
+
 The parser runs as a native Linux service. Manage it via systemd:
 
 Bash
+
 sudo systemctl start log-parser   # Start the service
 sudo systemctl status log-parser  # Check status
 sudo journalctl -u log-parser -f  # View logs in real-time
+
 Getting Started
+
 Clone the repo: git clone https://github.com/Jok3r15/python-log-parser.git
 
 Setup Environment: python3 -m venv .venv && source .venv/bin/activate
@@ -51,4 +57,5 @@ Setup Environment: python3 -m venv .venv && source .venv/bin/activate
 Run: python3 main.py
 
 License
+
 Distributed under the MIT License. See LICENSE for more information.
