@@ -1,31 +1,25 @@
-# Llaves privadas (¡CRÍTICO!)
+# --- SECTORS & KEYS (Nunca subas esto) ---
 *.pem
 *.key
+*.tfvars
 
-# Terraform
+# --- TERRAFORM ---
 .terraform/
 *.tfstate
-*.tfstate.backup
+*.tfstate.*
 .terraform.lock.hcl
 
-# Python / Entornos
-.venv/
+# --- PYTHON ---
 __pycache__/
+.venv/
+*.py[cod]
 
-# Sistema
+# --- LOGS & RUNTIME DATA (Datos generados en ejecución) ---
+*.log
+data/alerts.json
+data/blacklist.txt
+dist/
+
+# --- IDE & SISTEMA ---
 .DS_Store
 .vscode/
-
-# Ignorar la carpeta de distribución y dependencias de AWS CLI
-terraform/aws/dist/
-
-# Logs
-*.log
-*.pem
-*.tfstate*
-dist/
-.venv/
-*.tfstate*
-.terraform/
-*.tfstate*
-.terraform/

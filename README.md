@@ -1,61 +1,45 @@
 # Python Log Parser
 
-A lightweight, efficient log auditing tool designed for real-time monitoring and anomaly detection. This project is built for server-side log analysis, featuring automated infrastructure deployment and system orchestration.
+A security detection and incident response system based on log analysis and infrastructure automation (IaC).
 
-## Features
+## Description
+This project implements an automated security agent that monitors server logs in real-time to detect unauthorized access attempts. Upon identifying brute-force patterns, the agent generates a blocklist and utilizes Terraform to dynamically update AWS Security Group rules, autonomously mitigating attack vectors.
 
-* **Log Parsing:** Efficient, line-by-line processing of log files with low memory footprint.
-* **Automation:** Fully automated infrastructure provisioning via **Terraform** (AWS).
-* **Process Management:** Managed as a native Linux service via **systemd** for high availability.
-* **CI/CD:** Automated testing and build pipeline via GitHub Actions.
+## Technology Stack
+* **Languages:** Python (Detection Engine), Bash (Process Automation).
+* **Infrastructure as Code:** Terraform.
+* **Cloud Provider:** AWS (VPC, Security Groups, EC2).
+* **Version Control:** Git.
 
-## Repository Structure
+## Pipeline Architecture
+The automated workflow follows this logical sequence:
+1. **Detection:** Real-time log analysis using the Python Log Parser engine.
+2. **Persistence:** Generation of a blocklist file (blacklist.txt).
+3. **Orchestration:** Execution of the deployment script (deploy.sh).
+4. **Deployment:** Application of changes via terraform apply to update firewall rules in AWS.
 
-```text
-.
-├── src/            # Core parsing logic
-├── terraform/      # Infrastructure as Code (AWS configuration)
-├── data/           # Sample log files for auditing
-├── tests/          # Unit testing suite
-├── Makefile        # Automation commands (Build, Test, Deploy)
-└── main.py         # Main entry point for the auditing service
-Infrastructure (AWS)
-We use Terraform to provision the AWS environment, ensuring consistency across environments.
+## Evidence of Results
 
-Instance: t3.micro (Ubuntu 22.04).
+### Detection Process
+![Detection Output](Screenshot_log_parser_CLI.png)
+*System output log identifying threats and executing the network update via CLI.*
 
-Networking: Secure VPC with Network Segmentation.
+### AWS Infrastructure Configuration
+![AWS Console](Screenshot_log_parser_AWS_EC2.png)
+*Visualization of dynamically created inbound rules within the AWS Security Group console.*
 
-AMI: Automated dynamic selection of the latest Ubuntu AMI.
+## Installation and Usage
 
-Deployment & Execution
-1. Infrastructure
-To provision the AWS environment:
+### Prerequisites
+* AWS CLI configured with appropriate permissions.
+* Terraform installed in the local environment.
 
-Bash
+### Execution
+1. Clone the repository: `git clone <repository-url>`
+2. Navigate to the project directory: `cd python-log-parser`
+3. Execute the deployment script: `./deploy.sh`
 
-cd terraform
-terraform init
-terraform apply
-
-2. Service Management
-
-The parser runs as a native Linux service. Manage it via systemd:
-
-Bash
-
-sudo systemctl start log-parser   # Start the service
-sudo systemctl status log-parser  # Check status
-sudo journalctl -u log-parser -f  # View logs in real-time
-
-Getting Started
-
-Clone the repo: git clone https://github.com/Jok3r15/python-log-parser.git
-
-Setup Environment: python3 -m venv .venv && source .venv/bin/activate
-
-Run: python3 main.py
-
-License
-
-Distributed under the MIT License. See LICENSE for more information.
+## Technical Considerations
+* **State Management:** The project utilizes a blacklist.txt file to maintain persistence of blocked IPs across multiple execution cycles.
+* **Security:** The infrastructure deployment follows GitOps principles, ensuring the network state aligns with the configuration defined in the source code.
+* **Maintainability:** The use of local variables in Terraform allows for scaling the blocklist without manual intervention in the AWS console.
